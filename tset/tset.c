@@ -36,6 +36,7 @@ __RCSID("$NetBSD: tset.c,v 1.20 2011/09/06 18:34:12 joerg Exp $");
 
 #include <sys/types.h>
 #include <sys/ioctl.h>
+#include <sys/ttydefaults.h>
 #include <ctype.h>
 #include <err.h>
 #include <errno.h>

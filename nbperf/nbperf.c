@@ -63,7 +63,7 @@ void usage(const char *progname)
 	exit(1);
 }
 
-#if HAVE_NBTOOL_CONFIG_H
+#if !defined(__NetBSD__) && !defined(__GLIBC__)
 #define	arc4random() rand()
 #endif
 
