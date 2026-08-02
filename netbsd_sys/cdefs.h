@@ -1,6 +1,8 @@
 #ifndef NETBSD_SYS_CDEFS_H
 #define NETBSD_SYS_CDEFS_H
 
+#include <stdint.h>
+
 #ifndef __RCSID
 #define __RCSID(X)
 #endif
@@ -68,5 +70,6 @@
 #define __predict_false(exp)    (exp)
 #endif
 
-#endif
+#define __nothing	(/*LINTED*/(void)0)
 
+#endif

@@ -26,6 +26,7 @@
  */
 
 #include <netbsd_sys/cdefs.h>
+__RCSID("$NetBSD: del.c,v 1.3 2015/11/02 02:45:25 kamil Exp $");
 
 #include "panel_impl.h"
 

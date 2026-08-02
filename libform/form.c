@@ -29,10 +29,11 @@
  *
  */
 
-#include <string.h>
 #include <netbsd_sys/cdefs.h>
+__RCSID("$NetBSD: form.c,v 1.17 2021/04/13 13:13:04 christos Exp $");
 
 #include <stdlib.h>
+#include <string.h>
 #include <strings.h>
 #include <form.h>
 #include "internals.h"

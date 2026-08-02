@@ -244,24 +244,24 @@ install-stalib-form: $(FO_LIBA)
 install-stalibs: install-stalib-terminfo install-stalib-curses install-stalib-panel install-stalib-menu install-stalib-form
 
 install-dynlib-curses: $(CU_LIBSO)
-	$(INSTALL) -Dm 644 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
+	$(INSTALL) -Dm 755 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/libncurses$(SO_SUFFIX)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/libncursesw$(SO_SUFFIX)
 
 install-dynlib-terminfo: $(TI_LIBSO)
-	$(INSTALL) -Dm 644 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
+	$(INSTALL) -Dm 755 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/libtermcap$(SO_SUFFIX)
 
 install-dynlib-panel: $(PA_LIBSO)
-	$(INSTALL) -Dm 644 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
+	$(INSTALL) -Dm 755 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/$(basename $(notdir $<))w$(SO_SUFFIX)
 
 install-dynlib-menu: $(ME_LIBSO)
-	$(INSTALL) -Dm 644 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
+	$(INSTALL) -Dm 755 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/$(basename $(notdir $<))w$(SO_SUFFIX)
 
 install-dynlib-form: $(FO_LIBSO)
-	$(INSTALL) -Dm 644 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
+	$(INSTALL) -Dm 755 $< $(DESTDIR)$(LIBDIR)/$(notdir $<)
 	$(LN) -sf $(notdir $<) $(DESTDIR)$(LIBDIR)/$(basename $(notdir $<))w$(SO_SUFFIX)
 
 install-dynlibs: install-dynlib-terminfo install-dynlib-curses install-dynlib-panel install-dynlib-menu install-dynlib-form

@@ -30,6 +30,7 @@
  */
 
 #include <netbsd_sys/cdefs.h>
+__RCSID("$NetBSD: field_types.c,v 1.7 2006/03/19 20:02:27 christos Exp $");
 
 #include <stdlib.h>
 #include <stdarg.h>

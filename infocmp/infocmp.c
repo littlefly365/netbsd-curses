@@ -29,6 +29,7 @@
 
 #include <netbsd_sys/emalloc.h>
 #include <netbsd_sys/cdefs.h>
+__RCSID("$NetBSD: infocmp.c,v 1.17 2020/03/31 12:44:15 roy Exp $");
 
 #include <sys/ioctl.h>
 

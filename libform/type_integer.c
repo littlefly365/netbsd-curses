@@ -29,11 +29,11 @@
  *
  */
 
-#define _GNU_SOURCE
 #include <netbsd_sys/cdefs.h>
-#include <string.h>
+__RCSID("$NetBSD: type_integer.c,v 1.9 2021/04/13 13:13:04 christos Exp $");
 
 #include <stdlib.h>
+#include <string.h>
 #include <strings.h>
 #include <ctype.h>
 #include "form.h"

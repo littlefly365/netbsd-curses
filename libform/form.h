@@ -32,7 +32,7 @@
 #ifndef FORM_H
 #define FORM_H 1
 #if 0
-#include <netbsd_sys/queue.h>
+#include <sys/queue.h>
 #endif
 #include <stdarg.h>
 #include <curses.h>
@@ -325,9 +325,7 @@ struct _form_struct {
 };
 
 /* Public function prototypes. */
-#ifdef __cplusplus
-extern "C" {
-#endif
+__BEGIN_DECLS
 
 FIELD       *current_field(FORM *);
 int          data_ahead(FORM *);
@@ -407,8 +405,6 @@ int          set_max_field(FIELD *, int);
 int          set_new_page(FIELD *, int);
 int          unpost_form(FORM *);
 
-#ifdef __cplusplus
-}
-#endif
+__END_DECLS
 
 #endif /* FORM_H */

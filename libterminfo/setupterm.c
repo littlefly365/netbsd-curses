@@ -28,6 +28,7 @@
  */
 
 #include <netbsd_sys/cdefs.h>
+__RCSID("$NetBSD: setupterm.c,v 1.9 2019/04/11 23:52:08 jakllsch Exp $");
 
 #include <sys/ioctl.h>
 #include <assert.h>
@@ -35,7 +36,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <strings.h>
 #include <unistd.h>
 #include <term_private.h>
@@ -80,7 +80,6 @@ int
 ti_setupterm(TERMINAL **nterm, const char *term, int fildes, int *errret)
 {
 	int error;
-	char *p;
 	struct winsize win;
 
 	_DIAGASSERT(nterm != NULL);
@@ -99,13 +98,6 @@ ti_setupterm(TERMINAL **nterm, const char *term, int fildes, int *errret)
 		reterr(-1, "not enough memory to create terminal structure");
 
 	error = _ti_getterm(*nterm, term, 0);
-	if (error != 1 && (p = strchr(term, '.'))) {
-		term = ++p;
-		/* assert assumption that we don't need to call del_curterm */
-		p = (void*) *nterm;
-		while(p < (char*)((*nterm)+1)) if(*(p++)) assert(0);
-		error = _ti_getterm(*nterm, term, 0);
-	}
 	if (error != 1) {
 		del_curterm(*nterm);
 		*nterm = NULL;
@@ -141,6 +133,8 @@ ti_setupterm(TERMINAL **nterm, const char *term, int fildes, int *errret)
 
 	/* POSIX 1003.2 requires that the environment override. */
 	if (__use_env) {
+		char *p;
+
 		if ((p = getenv("LINES")) != NULL)
 			t_lines(*nterm) = (short)strtol(p, NULL, 0);
 		if ((p = getenv("COLUMNS")) != NULL)
